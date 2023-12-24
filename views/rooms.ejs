@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/reqular-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>У Плотинки - забронировать номер</title>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+          <li><a href="/" class="active">Главная</a></li>
+          <li><a href="/rooms">Бронирования</a></li>
+          <li><a href="/about">Адрес и контакты</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Мои бронирования</h1>
+        <form action="/api/upcoming-books/">
+            <div class="one-line">
+                <label for="firstname">Имя: </label>
+                <input type="text" id="firstname" name="firstname"><br>
+                <label for="lastname">Фамилия: </label>
+                <input type="text" id="lastname" name="lastname">
+            </div>
+            <button type="submit">Найти</button>
+        </form>
+        <% if (error == true) { %>
+            <p class="error">Бронирования не найдены</p>
+        <% } %>
+        <% if (error == 'unbooked') { %>
+            <p class="success">Бронирование успешно отменено</p>
+        <% } %>
+        <% if (books != undefined) {%>
+                <% books.forEach((book) => { %>
+                    <ul>
+                    <% var id = book['Номер'] %>
+                    <% var book_start = book['Заезд'] %>
+                    <% var book_end = book['Выезд'] %>
+                    <% var firstname = book['Имя'] %>
+                    <% var lastname = book['Фамилия'] %>
+                    <% console.log(id) %>
+                    <% for (const [key, value] of Object.entries(book)) { %>
+                        <% if (key == 'Имя') {break} %>
+                        <li><%= key %>: <%= value %></li>
+                    <% } %>
+                    <form method="POST" action="/api/unbook-room">
+                        <input type="hidden" name="id" value="<%= id %>"/>
+                        <input type="hidden" name="book_start" value="<%= book_start %>"/>
+                        <input type="hidden" name="book_end" value="<%= book_end %>"/>
+                        <input type="hidden" name="firstname" value="<%= firstname %>"/>
+                        <input type="hidden" name="lastname" value="<%= lastname %>"/>
+                        <button type="submit">Отменить</button>
+                    </form>
+                    </ul>
+                <% }) %>
+        <% } %>
+    </div>
+    <div class="end">
+        <p>Web и DHTML. Кирилл Дрешпак, КБ-301</p>
+    </div>
+</body>
+</html>

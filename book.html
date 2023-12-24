@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/reqular-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>У Плотинки - забронировать номер</title>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+          <li><a href="/" class="active">Главная</a></li>
+          <li><a href="/rooms">Номера</a></li>
+          <li><a href="/about">Адрес и контакты</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Забронировать номер</h1>
+        <form action="/api/book-room/">
+            <div class="one-line">
+                <label for="roomClass">Класс: </label>
+                <select id="roomClass" name="roomClass">
+                    <option value="Стандарт">Стандарт</option>
+                    <option value="Комфорт">Комфорт</option>
+                    <option value="Люкс">Люкс</option>
+                </select>
+            </div>
+            <div class="one-line">
+                <label for="bookStart">Дата заезда: </label>
+                <input type="date" id="bookStart" name="bookStart"/>
+                <label for="bookEnd">Дата выезда: </label>
+                <input type="date" id="bookEnd" name="bookEnd"/>
+            </div>
+            <div class="one-line">
+                <label for="firstname">Имя: </label>
+                <input type="text" id="firstname" name="firstname"><br>
+                <label for="lastname">Фамилия: </label>
+                <input type="text" id="lastname" name="lastname">
+            </div>
+            <button type="submit">Отправить</button>
+        </form>
+    </div>
+    <div class="end">
+        <p>Web и DHTML. Кирилл Дрешпак, КБ-301</p>
+    </div>
+</body>
+</html>

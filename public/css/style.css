@@ -1,0 +1,132 @@
+.welcome {
+    background-image: url('../image/landscape.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+.welcome .book-btn {
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #d49700;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 300px;
+}
+
+.book-btn:hover {
+    background-color: #c78c03;
+}
+
+.welcome .text {
+    background: linear-gradient(transparent, rgba(17, 17, 17, 0.9)); /* Цвет градиента */
+    background-size: 100% 100%; /* Ширина и высота градиента */
+}
+
+.welcome .text p {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1e1e1e;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar li a:hover:not(.active) {
+  background-color: #313131;
+}
+
+.navbar .active {
+  background-color: #d49700;
+}
+
+.welcome h2 {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 45px;
+    margin-bottom: 0;
+}
+
+.welcome p {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    flex: 1;
+}
+.section {
+    margin-bottom: 20px;
+}
+.map {
+    width: 100%;
+    height: 400px;
+    background-color: lightgray;
+}
+.rooms {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.room {
+    width: 31%;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.room img {
+    width: 100%;
+    height: 100%;
+}
+
+.end {
+    width: 100%;
+    height: 80px;
+    background-color: lightgray;
+    display: flex;
+}
+
+.end p {
+    width: 80%;
+    margin: auto auto;
+    color: #313131;
+}
