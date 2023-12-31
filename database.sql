@@ -8,6 +8,12 @@ create TABLE rooms(
     places INTEGER
 );
 
+create table tokens(
+    id serial primary key,
+    token varchar(50),
+    ttl timestamp
+);
+
 create TABLE books(
     room_id INT,
     book_firstname VARCHAR (30),

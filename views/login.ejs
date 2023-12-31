@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/reqular-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
+    <title>У Плотинки - забронировать номер</title>
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+          <li><a href="/" class="active">Главная</a></li>
+          <li><a href="/rooms">Бронирования</a></li>
+          <li><a href="/about">Адрес и контакты</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h1>Бронирования</h1>
+        <% if (error == true) { %>
+            <p class="error">Неверный пароль</p>
+        <% } %>
+        <form method="post" action="/api/login">
+            <div class="one-line">
+                <label for="password">Пароль администратора: </label>
+                <input type="text" id="password" name="password"/>
+            </div>
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+    <div class="end">
+        <p>Web и DHTML. Кирилл Дрешпак, КБ-301</p>
+    </div>
+</body>
+</html>

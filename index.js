@@ -32,32 +32,13 @@ app.get('/book/success', function(req, res) {
 });
 
 app.get('/rooms', function(req, res) {
-    let data = {error: false, books: undefined}
-    res.render('rooms', data)
+    let data = {error: false}
+    res.render('login', data)
 });
-
-// app.post('/api/book-room', function(req, res) {
-//     const {roomClass, bookStart, bookEnd, firstname, lastname} = req.body
-//     const book = db.query('SELECT * FROM rooms')
-//
-//     console.log(firstname, lastname)
-//     res.json(book)
-// });
 
 app.get('/about', function(req, res) {
     res.render('about')
 
 });
-
-// const server =  http.createServer(function(request, response){
-//     response.end()
-// });
-//
-// const requestListener = function (req, res) {
-//     res.setHeader("Content-Type", "text/html");
-//     res.writeHead(200);
-//     res.end(page/index.ejs);
-// };
-
 
 app.listen(port, host,  function(){ console.log("Сервер запущен по адресу http://localhost:3000")});
