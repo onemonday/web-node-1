@@ -1,5 +1,5 @@
 var express = require('express');
-
+const cookieParser = require("cookie-parser");
 const roomsRouter = require('./routes/rooms.routes')
 const db = require('./db')
 
@@ -9,6 +9,7 @@ app.use(express.static('public'))
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))
 app.use('/api', roomsRouter);
+app.use(cookieParser());
 
 const host = 'localhost';
 const port = 3000;
@@ -32,8 +33,20 @@ app.get('/book/success', function(req, res) {
 });
 
 app.get('/rooms', function(req, res) {
-    let data = {error: false}
-    res.render('login', data)
+    try {
+        const csrfToken = req.cookies.token
+        if (csrfToken !== undefined) {
+            let data = {error: false, books: undefined}
+            res.render('rooms', data)
+        } else {
+            let data = {error: false}
+            res.render('login', data)
+        }
+    } catch (e) {
+        console.log(e.message)
+        let data = {error: false}
+        res.render('login', data)
+    }
 });
 
 app.get('/about', function(req, res) {

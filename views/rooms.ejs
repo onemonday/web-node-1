@@ -18,7 +18,7 @@
     </div>
 
     <div class="container">
-        <h1>Мои бронирования</h1>
+        <h1>Бронирования</h1>
         <form action="/api/upcoming-books/">
             <div class="one-line">
                 <label for="firstname">Имя: </label>
@@ -36,7 +36,7 @@
         <% } %>
         <% if (books != undefined) {%>
                 <% books.forEach((book) => { %>
-                    <ul>
+                    <ul class="info">
                     <% var id = book['Номер'] %>
                     <% var book_start = book['Заезд'] %>
                     <% var book_end = book['Выезд'] %>
